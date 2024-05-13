@@ -1,75 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
-  <title>Frontend Mentor | QR code component</title>
+  <title>Sitio de Mauricio723</title>
 
   <style>
 	.clase_body {
+		background-color: rgb(210, 240, 250);
 		margin: 0px;
 	}
-	.div_main_01 {
-		background-color: rgb(200, 230, 250);			
-		padding-top: 98px;
-		padding-bottom: 98px;		
-	}
-	.div_tarjeta_01 {
-		background-color: rgb(255, 255, 255);
-		width: 260px;
-		margin: auto;
-		padding-top: 20px;
-		padding-left: 20px;
-		padding-right: 20px;		
-		border-radius: 30px;
-	}
-	.div_contenido_01 {		
-		margin-bottom: 20px;		
-		padding: 5px;	
+	.estilo_titulo_01 {
 		text-align: center;
-		font-family: sans-serif, Arial, Helvetica;		
 	}
-	.div_img_01 {
-		width: 100%;		
-		margin: auto;						
+	.estilo_subtitulo_01 {
+		margin-left: 10%;
 	}
-	.estilo_img_01 {
-		width: 100%;
+	.estilo_header_01 {
+		background-color: rgb(65, 80, 75);
+		color: rgb(220, 230, 240);
+		padding: 5px;
+	}
+	.estilo_nav_01 {
+		background-color: rgb(120, 130, 100);		
+		padding: 10px;
+	}
+	.div_nav_01 {
+		background-color: rgb(190, 200, 180);
+		padding-left: 5%;
+		padding-right: 5%;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;		
+		column-gap: 5px;
+	}
+	.div_nav_01 p {
+		background-color: rgb(230, 230, 210);
+		text-align: center;
+		font-size: 1.1rem;
+		padding: 2px;
+		border: 1px solid black;
+	}	
+	
+	.estilo_section_01 {
+		background-color: rgb(220, 235, 210);
+		margin: 5px;
+		padding: 10px;
+	}
+	.estilo_article_01 {
+		background-color: rgb(230, 240, 245);
+		padding: 10px;
 		border-radius: 20px;
 	}
-	.titulo_tarjeta {			
-		font-size: 1.2rem;
+	.parrafo_article {
+		color: rgb(40, 55, 60);
+		font-size: 1.1rem;
 	}
-	.parrafo_tarjeta {			
-		font-size: 0.9rem;		
-	}	
+	
+	.estilo_footer_01 {
+		background-color: rgb(65, 80, 75);
+		color: rgb(220, 230, 240);
+		padding: 10px;
+	}
 		
   </style>
   
 </head>
 <body class="clase_body">
+	<header class="estilo_header_01">
+			
+		<h1 class="estilo_titulo_01">Mauricio723</h1>
+	
+		<h3 class="estilo_subtitulo_01">Espacio para Prueba de proyectos</h3>
+	</header>
 
-	<div class="div_main_01">
+	<nav class="estilo_nav_01">
 	
-	<div class="div_tarjeta_01">
-	
-		<div class="div_img_01">
-	
-			<image src="images/image-qr-code.png" class="estilo_img_01" alt="imagen de código qr">
-	
+		<div class="div_nav_01">
+			<p>--------</p>
+			<p><a href="desafios_Mentor/desafio_QR.html">Desafio QR</a></p>
+			<p>--------</p>
+			<p>--------</p>		
 		</div>
-		<div class="div_contenido_01">
+					
+	</nav>
+	
+	<main>
+		<section class="estilo_section_01">
+			<h3 class="estilo_subtitulo_01">Inicio</h3>
+			<article class="estilo_article_01">
+				
+				<p class="parrafo_article">Bienvenidos a mi sitio de pruebas, desde aquí tienen enlaces 
+				hacia algunos de mis proyectos. La mayor parte de estos proyectos están en etapa de 
+				desarrollo, por lo que probablemente algunos no estén completamente funcionales.</p>
+				<p>En la sección desafíos pueden ver los proyectos propuestos 
+				por Frontend Mentor.
+				</p>
+			
+			</article>
 		
-			<h3 class="titulo_tarjeta">Improve your front-end skills by building projects</h3>
-			<p class="parrafo_tarjeta">Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</p>
-		
+		</section>
+	</main>
+
+	<footer class="estilo_footer_01">
+		<div>
+			<p>Autor: Mauricio723</p>
+			<p>Fecha publicación : Mayo 2024</p>
 		</div>
-	</div>
-	</div>
-  
+	</footer>	  
 </body>
 </html>
