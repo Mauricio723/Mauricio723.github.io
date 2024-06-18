@@ -1,5 +1,10 @@
 /* Estilos para index */
 
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
 .clase_body {
 		background-color: rgb(210, 240, 250);
 		margin: 0px;
@@ -15,7 +20,7 @@
 .estilo_header_01 {
 	background-color: rgb(65, 80, 75);
 	color: rgb(220, 230, 240);
-	padding: 5px;
+	padding: 10px;
 }
 .estilo_nav_01 {
 	background-color: rgb(120, 130, 100);		
@@ -23,20 +28,44 @@
 }
 .div_nav_01 {
 	background-color: rgb(190, 200, 180);
-	padding-left: 5%;
-	padding-right: 5%;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;		
-	column-gap: 5px;
+	padding: 10px;	
 }
-.div_nav_01 p {
+
+.p_enlace {
+	display: inline-block;
 	background-color: rgb(230, 230, 210);
+	color: rgb(40, 50, 70);
 	text-align: center;
-	font-size: 1.1rem;
-	padding: 2px;
-	border: 1px solid black;
-}	
-	
+	padding: 5px;
+	border: 1px solid white;
+}
+.p_enlace:hover {
+	cursor: pointer;
+	background-color: black;
+	color: white;
+}
+
+.div_enlaces_01 {
+	background-color: rgb(230, 230, 210);
+	margin-top: 5px;
+	padding: 10px;
+	border: 1px solid white;	
+}
+.div_enlaces_01 p {
+	display: inline-block;
+	background-color: black;
+	color: white;	
+	padding: 5px;
+	border: 1px solid white;
+}
+.div_enlaces_01 a {
+	text-decoration: none;
+	color: inherit;
+}
+.div_enlaces_01 p:hover {
+	background-color: white;
+	color: black;
+}
 .estilo_section_01 {
 	background-color: rgb(220, 235, 210);
 	margin: 5px;
@@ -44,6 +73,8 @@
 }
 .estilo_article_01 {
 	background-color: rgb(230, 240, 245);
+	margin-top: 10px;
+	margin-bottom: 10px;
 	padding: 10px;
 	border-radius: 20px;
 }
@@ -55,6 +86,7 @@
 .estilo_footer_01 {
 	background-color: rgb(65, 80, 75);
 	color: rgb(220, 230, 240);
+	margin-top: 10px;
 	padding: 10px;
 }
 		
