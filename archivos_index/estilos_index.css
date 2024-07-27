@@ -6,39 +6,53 @@
 }
 
 .clase_body {
-		background-color: rgb(210, 240, 250);
-		margin: 0px;
-		font-family: verdana, sans-serif;
-		
-	}
+	background-color: rgb(210, 240, 250);	
+	font-family: verdana, sans-serif;
+}
+
 .estilo_titulo_01 {
 	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.titulo_con_fondo {
+	background-color: rgb(220, 230, 240);
+	text-align: center;
+	width: 50%;
+	margin: 10px 30% 10px 12%;
+	padding: 5px;
+	border-radius: 10px;
 }
 .estilo_subtitulo_01 {
 	margin-left: 10%;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
+.subtitulo_con_fondo {
+	background-color: rgb(220, 230, 240);
+	text-align: center;
+	width: 50%;
+	margin: 10px 30% 10px 12%;
+	padding: 5px;
+	border-radius: 10px;
+}
+
 .estilo_header_01 {
-	background-color: rgb(65, 80, 75);
+	background: radial-gradient(rgb(25, 117, 22), rgb(36, 76, 150));
 	color: rgb(220, 230, 240);
 	padding: 10px;
 }
+
 .estilo_nav_01 {
-	background-color: rgb(120, 130, 100);		
+	background-color: rgb(120, 130, 100);
 	padding: 10px;
 }
+
 .div_nav_01 {
 	background-color: rgb(190, 200, 180);
-	padding: 10px;	
+	padding: 10px;
 }
 
-.p_enlace {
-	display: inline-block;
-	background-color: rgb(230, 230, 210);
-	color: rgb(40, 50, 70);
-	text-align: center;
-	padding: 5px;
-	border: 1px solid white;
-}
 .p_enlace:hover {
 	cursor: pointer;
 	background-color: black;
@@ -49,45 +63,370 @@
 	background-color: rgb(230, 230, 210);
 	margin-top: 5px;
 	padding: 10px;
-	border: 1px solid white;	
+	border: 1px solid white;
 }
+
 .div_enlaces_01 p {
 	display: inline-block;
 	background-color: black;
-	color: white;	
+	color: white;
 	padding: 5px;
 	border: 1px solid white;
 }
+
 .div_enlaces_01 a {
 	text-decoration: none;
 	color: inherit;
 }
+
 .div_enlaces_01 p:hover {
 	background-color: white;
 	color: black;
 }
-.estilo_section_01 {
-	background-color: rgb(220, 235, 210);
-	margin: 5px;
-	padding: 10px;
+
+
+@media(max-width: 500px) {
+
+	.p_enlace {		
+		background-color: rgb(230, 230, 210);
+		color: rgb(40, 50, 70);
+		text-align: center;
+		margin-top: 5px;
+		padding: 5px;
+		border: 1px solid white;
+	}
+
+	.elemento_main {
+		background: linear-gradient(rgb(171, 228, 163), rgb(211, 175, 96), rgb(73, 84, 241));
+		margin: 5px;
+		padding: 10px;
+		border: 1px solid black;
+	}
+
+	.div_main_01 {
+		border: 1px solid green;
+	}
+
+	.estilo_aside {
+		font-size: 13px;
+		border: 1px solid red;
+	}
+
+	.div_aside_01 {
+		background-color: rgb(186, 224, 218);
+		margin: 10px;
+		padding: 10px;
+		border: 1px solid black;
+	}
+
+	.item_aside_section {	
+		display: inline-block;
+		background-color: rgb(235, 232, 223);	
+		color: rgb(73, 45, 8);
+		text-align: center;
+		margin-top: 5px;
+		margin-left: 3px;
+		padding: 3px;
+	}
+
+	.item_aside_main {	
+		display: inline-block;
+		background-color: rgb(235, 232, 223);	
+		color: rgb(73, 45, 8);
+		text-align: center;
+		margin-top: 5px;
+		margin-left: 3px;
+		padding: 3px;
+	}
+	.estilo_section_01 {
+		margin: 5px;
+		padding: 10px;
+	}
+
+	.div_section_01 {
+		border: 1px solid yellowgreen;
+	}
+
+	.estilo_article_01 {
+		background-color: rgb(230, 240, 245);
+		margin-top: 10px;
+		margin-bottom: 10px;
+		padding: 10px;
+		border-radius: 20px;
+	}
+
+	.parrafo_article {
+		color: rgb(40, 55, 60);
+		font-size: 1rem;
+		margin-left: 10px;
+		margin-right: 10px;
+		margin-top: 5px;
+		margin-bottom: 10px;
+	}
+
+	.estilo_footer_01 {
+		background-color: rgb(65, 80, 75);
+		color: rgb(220, 230, 240);
+		margin-top: 10px;
+		padding: 10px;
+	}
 }
-.estilo_article_01 {
-	background-color: rgb(230, 240, 245);
-	margin-top: 10px;
-	margin-bottom: 10px;
-	padding: 10px;
-	border-radius: 20px;
+
+@media(min-width: 501px) {
+
+	.p_enlace {
+		background-color: rgb(230, 230, 210);
+		color: rgb(40, 50, 70);
+		text-align: center;
+		margin-top: 5px;
+		padding: 5px;
+		border: 1px solid white;
+	}
+
+	.elemento_main {
+		background: linear-gradient(rgb(171, 228, 163), rgb(211, 175, 96), rgb(73, 84, 241));
+		margin: 5px;
+		padding: 10px;
+		border: 1px solid black;
+	}
+
+	.div_main_01 {
+		border: 1px solid black;
+	}
+
+	.estilo_aside {
+		font-size: 13px;
+		border: 1px solid blue;
+	}
+
+	.div_aside_01 {
+		background-color: rgb(186, 224, 218);
+		margin: 10px;
+		padding: 10px;
+		border: 1px solid black;
+	}
+
+	.item_aside_section {	
+		display: inline-block;
+		background-color: rgb(235, 232, 223);	
+		color: rgb(73, 45, 8);
+		text-align: center;
+		margin-top: 5px;
+		margin-left: 3px;
+		padding: 3px;
+	}
+
+	.item_aside_main {	
+		display: inline-block;
+		background-color: rgb(235, 232, 223);	
+		color: rgb(73, 45, 8);
+		text-align: center;
+		margin-top: 5px;
+		margin-left: 3px;
+		padding: 3px;
+	}
+
+	.estilo_section_01 {
+		margin: 5px;
+		padding: 10px;
+	}
+
+	.div_section_01 {
+		border: 1px solid yellowgreen;
+	}
+
+	.estilo_article_01 {
+		background-color: rgb(230, 240, 245);		
+		margin: 15px;		
+		padding: 10px;
+		border-radius: 20px;
+	}
+
+	.parrafo_article {
+		color: rgb(40, 55, 60);
+		font-size: 1rem;
+		margin-left: 10px;
+		margin-right: 10px;
+		margin-top: 5px;
+		margin-bottom: 10px;
+	}
+
+	.estilo_footer_01 {
+		background-color: rgb(65, 80, 75);
+		color: rgb(220, 230, 240);
+		margin-top: 10px;
+		padding: 10px;
+	}
 }
-.parrafo_article {
-	color: rgb(40, 55, 60);
-	font-size: 1.1rem;
+
+@media(min-width: 964px) {
+
+	.p_enlace {
+		display: inline-block;
+		background-color: rgb(230, 230, 210);
+		color: rgb(40, 50, 70);
+		text-align: center;
+		padding: 5px;
+		border: 1px solid white;
+	}
+
+	.elemento_main {
+		background: linear-gradient(rgb(171, 228, 163), rgb(211, 175, 96), rgb(73, 84, 241));
+		margin: 3px;
+		border: 1px solid black;
+	}
+
+	.div_main_01 {
+		border: 1px solid red;
+	}
+
+	.estilo_aside {
+		font-size: 14px;
+		border: 1px solid green;
+	}
+
+	.div_aside_01 {
+		background-color: rgb(186, 224, 218);
+		margin: 3px;
+		padding: 3px;
+		border: 1px solid black;
+	}
+
+	.item_aside_section {	
+		display: block;
+		background-color: rgb(235, 232, 223);	
+		color: rgb(73, 45, 8);
+		text-align: center;
+		margin-top: 5px;
+		margin-left: 3px;
+		padding: 3px;
+	}
+
+	.item_aside_main {	
+		display: inline-block;
+		background-color: rgb(235, 232, 223);	
+		color: rgb(73, 45, 8);
+		text-align: center;
+		margin-top: 5px;
+		margin-left: 3px;
+		padding: 3px;
+	}
+	.estilo_section_01 {
+		display: grid;
+		grid-template-columns: 1fr 4fr;
+		margin: 3px;
+	}
+
+	.div_section_01 {
+		border: 1px solid yellowgreen;
+	}
+
+	.estilo_article_01 {
+		background-color: rgb(230, 240, 245);
+		width: 688px;
+		margin: 15px auto;
+		padding: 10px;
+		border-radius: 20px;
+	}
+	.parrafo_article {
+		color: rgb(40, 55, 60);		
+		font-size: 1.1rem;
+		margin-left: 10px;
+		margin-right: 10px;
+		margin-top: 5px;
+		margin-bottom: 10px;
+	}
+
+	.estilo_footer_01 {
+		background-color: rgb(65, 80, 75);
+		color: rgb(220, 230, 240);
+		margin-top: 10px;
+		padding: 10px;
+	}
 }
-	
-.estilo_footer_01 {
-	background-color: rgb(65, 80, 75);
-	color: rgb(220, 230, 240);
-	margin-top: 10px;
-	padding: 10px;
+
+@media(min-width: 1240px) {
+
+	.p_enlace {
+		display: inline-block;
+		background-color: rgb(230, 230, 210);
+		color: rgb(40, 50, 70);
+		text-align: center;
+		padding: 5px;
+		border: 1px solid white;
+	}
+
+	.elemento_main {
+		display: grid;
+		grid-template-columns: 4fr 1fr;
+		background: linear-gradient(rgb(171, 228, 163), rgb(211, 175, 96), rgb(73, 84, 241));
+		margin: 3px;
+		border: 1px solid black;
+	}
+
+	.div_main_01 {
+		border: 1px solid red;
+	}
+
+	.estilo_aside {
+		font-size: 14px;
+		border: 1px solid green;
+	}
+
+	.div_aside_01 {
+		background-color: rgb(186, 224, 218);
+		margin: 10px;
+		padding: 10px;
+		border: 1px solid black;
+	}
+
+	.item_aside_section {		
+		background-color: rgb(235, 232, 223);	
+		color: rgb(73, 45, 8);
+		margin-top: 5px;
+		margin-left: 3px;
+		padding: 3px;
+	}
+	.item_aside_main {	
+		display: block;	
+		background-color: rgb(235, 232, 223);	
+		color: rgb(73, 45, 8);
+		margin-top: 5px;
+		margin-left: 3px;
+		padding: 3px;
+	}
+
+	.estilo_section_01 {
+		display: grid;
+		grid-template-columns: 2fr 7fr;
+		margin: 3px;
+	}
+
+	.div_section_01 {
+		border: 1px solid yellowgreen;
+	}
+
+	.estilo_article_01 {
+		background-color: rgb(230, 240, 245);
+		width: 690px;
+		margin: 15px auto;
+		padding: 10px;
+		border-radius: 20px;
+	}
+	.parrafo_article {
+		color: rgb(40, 55, 60);
+		font-size: 1.1rem;
+		margin-left: 10px;
+		margin-right: 10px;
+		margin-top: 5px;
+		margin-bottom: 10px;
+	}
+
+	.estilo_footer_01 {
+		background-color: rgb(65, 80, 75);
+		color: rgb(220, 230, 240);
+		margin-top: 10px;
+		padding: 10px;
+	}
 }
-		
-		
+
