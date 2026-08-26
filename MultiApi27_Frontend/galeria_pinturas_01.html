@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+
+	<meta charset="utf-8">
+	<!-- <meta charset="ISO-8859-1">  -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="icon" type="image/x-icon" href="archivos_galeria_img/icono_Mauricio_02.ico">
+	
+	<title>Galería Pinturas</title>
+		
+			
+	<link href="../archivos_proyecto_main/colores_constantes.css" rel="stylesheet">	
+
+	<link href="../archivos_proyecto_main/bootstrap-5.3.8-dist/css/bootstrap.min.css" rel="stylesheet">
+	
+	<link href="../archivos_proyecto_main/estilos_main.css" rel="stylesheet">
+	
+	<script src="../archivos_proyecto_main/script_main.js"></script>
+	
+	<style>
+	
+		.elemento_boton {
+			background-color: gray;
+			color: white;
+			cursor: pointer; 
+			text-align: center;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			border: 1px solid black;
+			border-radius: 5px;
+		}
+		.elemento_boton:hover {
+			background-color: green;
+			color: yellow;
+			border: 1px solid orange;
+		}
+		
+		.boton_p_aside {
+			background-color: white;
+			color: grey;
+			cursor: pointer; 
+			text-align: center;
+			padding-top: 3px;
+			padding-bottom: 3px;
+		}
+		.boton_p_aside:hover {
+			background-color: lavender;
+			color: black;
+		}
+
+		
+	</style>
+
+	
+	<script>
+	
+		function obtenerPintores() {
+			fetch("https://multiapiexpress27.onrender.com/galeria_img/obtener_pintores", {
+				method: "GET"
+			})
+			.then((response) => response.json())
+			.then((datos_pintores) => {
+								
+				let div_datos = document.getElementById("display_datos");
+				let divAsidePintores = document.getElementById("div_aside_pintores");
+				
+				let stringDatos = ""; 
+			
+				let stringAsidePintores = ""; 
+				
+				datos_pintores.forEach(pintor => {
+										
+					stringDatos += "<div class='col-6'><div class='mx-1 my-1 px-1 py-1'>" 
+						+ "<h5 class='elemento_boton' onclick='obtenerPinturasPorPintor(" + pintor.id + ", \"" 
+						+ pintor.nombre_pintor + "\")'>" + pintor.nombre_pintor + "</h5></div></div>";						
+				
+					stringAsidePintores += "<div id='div_item_aside_" + pintor.id + "' class='mx-1 my-1 px-1 py-1'>" 
+							+ "<span class='boton_p_aside' onclick='obtenerPinturasPorPintor(" 
+							+ pintor.id + ", \"" + pintor.nombre_pintor + "\")'>" + pintor.nombre_pintor + "</span></div>";
+													
+				});
+												
+				div_datos.innerHTML = "<div class='row gx-0 bg_lightsteelblue'>" + stringDatos + "</div>";
+				
+				divAsidePintores.innerHTML = stringAsidePintores;
+				
+				document.getElementById("input_id_pintor").value = "id_pintor_" + 0;
+				
+			})
+			.catch((error) => {
+				console.error("ocurrió un error al obtener datos: " + error);
+			});
+			
+		}
+		
+	
+		function obtenerPinturasPorPintor(id_pintor, nombre_pintor) {
+				
+			
+			let inputIdPintor = document.getElementById("input_id_pintor");
+						
+			let stringValuePrueba = "id_pintor_" + id_pintor; 
+			
+			let div_datos = document.getElementById("display_datos");	
+			
+			let divTituloNombrePintor = document.getElementById("titulo_nombre_pintor");
+						
+			if (inputIdPintor.value !== stringValuePrueba) {
+								
+				divTituloNombrePintor.innerHTML = "<div class='bg_lightcyan mx-2 my-2 px-1 py-1'>" 
+					+ "<h4 class='text_olive text-center'>Pinturas de " + nombre_pintor + "</h4></div>"; 
+					
+				fetch("https://multiapiexpress27.onrender.com/galeria_img/obtener_pinturas_por_pintor/" + id_pintor, {
+					method: "GET"
+				})
+				.then((response) => response.json())
+				.then((datosPinturas) => {
+											
+					let stringDatos = ""; 
+					
+					datosPinturas.forEach(pintura => {
+						stringDatos += "<div class='col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4'>"
+							+ "<div class='bg_seashell text_lightslategrey mx-1 my-1 px-2 py-2 rounded-2'>" 
+							+ "<h5 class='text-center mx-1 my-1'>" + pintura.titulo_img + "</h5>" 
+							+ "<div class='mx-1 my-1'><img src='" + pintura.url_imagen + "' class='img-fluid'></div>" 
+							+ "<p class='mx-2 my-2'>Autor: " + pintura.nombre_pintor + "</p></div></div>";
+					});
+					
+					div_datos.innerHTML = "<div class='row gx-0'>" + stringDatos + "</div>";
+					
+					inputIdPintor.value = "id_pintor_" + id_pintor;
+										
+					
+				})
+				.catch((error) => {
+					console.error("Ocurrió un error al obtener datos: " + error);
+				});	
+				
+			} else {
+			
+				alert("Seleccionó el mismo artista que se está mostrando, debe seleccionar otro");
+												
+			}								
+				
+		}			
+	
+		
+		window.addEventListener("load", obtenerPintores, false);
+		
+	</script>
+		
+</head>
+
+<body class="bg_lightcyan">
+
+	<header class="bg_slategrey text_ivory">
+		<div class="mx-1 my-1 px-1 py-1">
+			<h5 class="ms-2">SurCode25</h5>
+			<h3 class="text-center">Galería de Pinturas</h3>			
+		</div>
+		
+	</header>
+	<nav class="bg_silver">
+		<div class="mx-1 my-1 px-1 py-1">
+			<div class="bg_snow">
+				<span class="mx-2"><a href="../index.html">Inicio</a></span>
+				<span class="mx-2">---------</span>
+				<span class="mx-2">---------</span>
+				<span class="mx-2">---------</span>
+			</div>			
+		</div>
+	</nav>
+	<main class="estilo_main_01">
+	
+		<div class="container-fluid">
+		
+			<div class="row gx-0">
+			
+				<div class="col-sm-12 col-md-12 col-lg-9 col-xl-10">
+				
+					<div class="bg_darkseagreen">
+
+						<section class="estilo_section_01">
+						
+							<div class="row gx-0">
+							
+								<div class="col-sm-12 col-md-3 col-lg-3">
+									<aside class="bg_beige mx-1 my-1 px-1 py-1">
+										<div class="div_aside_01">
+											<div id="div_aside_pintores"></div>
+						
+										</div>
+					
+										<div class="">
+								<!-- El siguiente input es para guardar el id del pintor que se está mostrando. 
+									Con esto compruebo si el usuario selecciona el mismo pintor -->
+											<!--<p>pintor actual</p> -->
+											<input type="text" id="input_id_pintor" size="12" hidden>
+									<!-- El input está en tipo text por si no coincide con el tipo ingresdo. -->
+										</div>
+					
+									</aside>
+								</div>
+								
+								<div class="col-sm-12 col-md-9 col-lg-9">
+								
+									<div class="bg_dimgrey mx-1 my-1 px-1 py-1">
+								
+										
+										<article class="">
+										
+											<!-- se muestra el título del pintor seleccionado -->
+											
+											<div id="titulo_nombre_pintor">
+												<h4 class="text_lavender text-center">Galería de pinturas de varios artistas</h4>
+											</div>
+
+											<!-- se muestran los datos e imágenes de las pinturas seleccionadas -->
+											
+											<div id="display_datos" class="mx-1 my-1 px-1 py-1"></div>
+																		
+										</article>				
+
+									</div>
+				
+								</div>								
+								
+							</div>				
+
+						</section>
+
+					</div>
+		
+				</div>
+				
+				<div class="col-sm-12 col-md-12 col-lg-3 col-xl-2">
+				
+					<div class="bg_slategrey mx-1 my-1 border">
+						<aside class="estilo_aside">
+							<div class="bg_ivory mx-2 my-2 px-1 py-1">
+								<span class="item_aside_main">---------------</span>
+								<span class="item_aside_main">---------------</span>
+								<span class="item_aside_main">---------------</span>
+								<span class="item_aside_main">---------------</span>
+								<span class="item_aside_main">---------------</span>
+								<span class="item_aside_main">---------------</span>
+								<span class="item_aside_main">---------------</span>
+								<span class="item_aside_main">---------------</span>
+								<span class="item_aside_main">---------------</span>
+								<span class="item_aside_main">---------------</span>
+							</div>
+							<div class="bg_grey text_azure mx-1 my-1 px-1 py-1" title="reducir o aumentar el tamaño del texto">
+								<h6 class="mx-2">tamaño texto</h6>
+								<button class="btn btn-sm" onclick="reducirSizeText()">
+									<svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" fill="none" viewBox="0 0 30 31">
+										<path fill="#ddeeff" d="M15 3.313A12.187 12.187 0 1 0 27.188 15.5 12.2 12.2 0 0 0 15 3.312Zm4.688 13.124h-9.375a.938.938 0 0 1 0-1.875h9.374a.938.938 0 0 1 0 1.876Z"/>
+									</svg>
+								</button>
+								<button class="btn btn-sm" onclick="aumentarSizeText()">
+									<svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" fill="none" viewBox="0 0 30 31">
+										<path fill="#ddeeff" d="M15 3.313A12.187 12.187 0 1 0 27.188 15.5 12.203 12.203 0 0 0 15 3.312Zm4.688 13.124h-3.75v3.75a.938.938 0 0 1-1.876 0v-3.75h-3.75a.938.938 0 0 1 0-1.875h3.75v-3.75a.938.938 0 0 1 1.876 0v3.75h3.75a.938.938 0 0 1 0 1.876Z"/>
+									</svg>
+								</button>																
+							</div>
+						</aside>
+					</div>
+					
+				</div>
+			</div>			
+			
+		</div>		
+
+	</main>
+	<footer class="bg_lightslategrey text_lightyellow">
+
+		<div class="mx-1 my-1 px-1 py-1">
+			<h6>Autor : Salvador Mauricio Vilches Jerez</h6>
+			<h6 class="ms-1">Fecha de publicación : Agosto 2026 </h6>
+			<h6>Contacto : Email: salvadorvilches1972@gmail.com</h6>			
+		</div>
+
+	</footer>
+	
+	<script src="../archivos_proyecto_main/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
