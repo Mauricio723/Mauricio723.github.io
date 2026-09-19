@@ -112,8 +112,11 @@
 								
 				divTituloNombrePintor.innerHTML = "<div class='bg_lightcyan mx-2 my-2 px-1 py-1'>" 
 					+ "<h4 class='text_olive text-center'>Pinturas de " + nombre_pintor + "</h4></div>"; 
-					
-				fetch("https://multiapiexpress27.onrender.com/galeria_img/obtener_pinturas_por_pintor/" + id_pintor, {
+				
+				let stringUrlProduccion = "https://multiapiexpress27.onrender.com/galeria_img/obtener_pinturas_por_pintor/"; 
+				let stringUrlLocal = "http://localhost:3005/galeria_img/obtener_pinturas_por_pintor/"; 
+				
+				fetch(stringUrlProduccion + id_pintor, {
 					method: "GET"
 				})
 				.then((response) => response.json())
@@ -121,32 +124,34 @@
 											
 					let stringDatos = ""; 
 					
+					let stringPinturaSeleccionada = ""; 
+					
 					datosPinturas.forEach(pintura => {
+													
 						stringDatos += "<div class='col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4'>"
 							+ "<div class='bg_seashell text_lightslategrey mx-1 my-1 px-2 py-2 rounded-2'>" 
 							+ "<h5 class='text-center mx-1 my-1'>" + pintura.titulo_img + "</h5>" 
 							+ "<div class='mx-1 my-1'><img src='" + pintura.url_imagen + "' class='img-fluid'></div>" 
-							+ "<p class='mx-2 my-2'>Autor: " + pintura.nombre_pintor + "</p></div></div>";
+							+ "<p>Año: " + pintura.year_end + "</p>"
+							+ "<p class='mx-2 my-2'>Autor: " + pintura.nombre_pintor + "</p></div></div>";												
+						
 					});
+																													
 					
 					div_datos.innerHTML = "<div class='row gx-0'>" + stringDatos + "</div>";
-					
-					inputIdPintor.value = "id_pintor_" + id_pintor;
-										
+															
+					inputIdPintor.value = "id_pintor_" + id_pintor;												
 					
 				})
 				.catch((error) => {
 					console.error("Ocurrió un error al obtener datos: " + error);
 				});	
 				
-			} else {
-			
-				alert("Seleccionó el mismo artista que se está mostrando, debe seleccionar otro");
-												
-			}								
+			} else {			
+				alert("Seleccionó el mismo artista que se está mostrando, debe seleccionar otro");												
+			}							
 				
-		}			
-	
+		}						
 		
 		window.addEventListener("load", obtenerPintores, false);
 		
@@ -271,8 +276,8 @@
 				</div>
 			</div>			
 			
-		</div>		
-
+		</div>	
+		
 	</main>
 	<footer class="bg_lightslategrey text_lightyellow">
 
