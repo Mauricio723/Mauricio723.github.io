@@ -7,7 +7,7 @@
 	<!-- <meta charset="ISO-8859-1">  -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="icon" type="image/x-icon" href="archivos_galeria_img/icono_Mauricio_02.ico">
+	<link rel="icon" type="image/x-icon" href="../archivos_proyecto_main/icono_Mauricio_02.ico">
 	
 	<title>Galería Pinturas</title>
 		
@@ -121,7 +121,7 @@
 				})
 				.then((response) => response.json())
 				.then((datosPinturas) => {
-											
+																
 					let stringDatos = ""; 
 					
 					let stringPinturaSeleccionada = ""; 
@@ -133,7 +133,7 @@
 							+ "<h5 class='text-center mx-1 my-1'>" + pintura.titulo_img + "</h5>" 
 							+ "<div class='mx-1 my-1'><img src='" + pintura.url_imagen + "' class='img-fluid'></div>" 
 							+ "<p>Año: " + pintura.year_end + "</p>"
-							+ "<p class='mx-2 my-2'>Autor: " + pintura.nombre_pintor + "</p></div></div>";												
+							+ "<p class='mx-2 my-2'>Autor: " + pintura.nombre_pintor + "</p></div></div>";								
 						
 					});
 																													
