@@ -1,0 +1,15 @@
+
+
+.div_item_respuesta {
+	margin: 5px; 
+	padding: 5px;
+	border: 1px solid black;
+}
+
+.input_rae:invalid {
+	border: 1px solid red;
+}
+
+.li_main {
+	margin-top: 10px;
+}

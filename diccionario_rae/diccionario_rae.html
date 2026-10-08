@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Diccionario RAE</title>
+	
+	<link href="estilos_diccionario_rae.css" rel="stylesheet">
+	
+	<link href="../archivos_proyecto_main/bootstrap-5.3.8-dist/bootstrap.min.css" rel="stylesheet">
+	
+	<link href="../archivos_proyecto_main/colores_constantes.css" rel="stylesheet">	
+			
+	<link href="../archivos_proyecto_main/estilos_main.css" rel="stylesheet">
+	
+	<script src="../archivos_proyecto_main/script_main.js"></script>
+	
+	<script src="script_palabras_rae.js"></script>
+	
+	<!--<script src="script_palabras_rae.js"></script> -->
+	
+	<!--<script src="script_con_palabras_rae_02.js"></script> -->
+	
+	<style>
+	
+		.elemento_boton {
+			background-color: gray;
+			color: white;
+			cursor: pointer; 
+			text-align: center;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			border: 1px solid black;
+			border-radius: 5px;
+		}
+		.elemento_boton:hover {
+			background-color: green;
+			color: yellow;
+			border: 1px solid orange;
+		}
+		
+		.boton_p_aside {
+			background-color: white;
+			color: grey;
+			cursor: pointer; 
+			text-align: center;
+			padding-top: 3px;
+			padding-bottom: 3px;
+		}
+		.boton_p_aside:hover {
+			background-color: lavender;
+			color: black;
+		}				
+		
+		.boton_span_palabra {
+			cursor: pointer;
+			padding: 3px;
+		}
+		.boton_span_palabra:hover {
+			background-color: grey;
+			color: white;
+		}		
+	
+   </style>
+    	
+
+ </head>
+ <body class="bg_beige container-fluid">
+ 
+	<header class="bg_slategrey text_ivory">
+		<div class="mx-1 my-1 px-1 py-1">
+			<h5 class="ms-2">SurCode25</h5>
+			<h3 class="text-center">Diccionario Real Academia Española</h3>			
+		</div>
+		
+	</header>
+	<nav class="bg_silver">
+		<div class="mx-1 my-1 px-1 py-1">
+			<div class="bg_snow">
+				<span class="mx-2"><a href="../index.html">Inicio</a></span>
+				<span class="mx-2">---------</span>
+				<span class="mx-2">---------</span>
+				<span class="mx-2">---------</span>
+			</div>		
+			
+		</div>
+		
+	</nav>
+	
+	<main class="estilo_main_01">
+	
+		<div class="container-fluid">
+		
+			<div class="row gx-0">
+			
+				<div class="col-sm-12 col-md-12 col-lg-9 col-xl-10">
+				
+					<div class="bg_darkseagreen">
+
+						<section class="estilo_section_01">
+						
+							<div class="row gx-0">
+							
+								<div class="col-sm-12 col-md-3 col-lg-3">
+									<aside class="bg_beige mx-1 my-1 px-1 py-1">
+																				
+										<div class="">
+											<div id="div_lista_palabras_sugeridas"></div>
+										</div>																											
+					
+									</aside>
+								</div>
+								
+								<div class="col-sm-12 col-md-9 col-lg-9">
+								
+									<div class="bg_dimgrey mx-1 my-1 px-1 py-1">
+								
+										
+										<article class="">
+										
+											<!-- se muestra el título del pintor seleccionado -->
+											
+											<div class="mx-1 my-1 px-1 py-1">
+												<h4 class="text_lavender text-center">Busqueda de palabras</h4>
+											</div>
+											
+											<div class="bg_beige mx-1 my-1 px-1 py-1">
+												<div class="bg_cornsilk mx-1 my-1 px-1 py-1">
+													<form id="formulario_palabra_rae">
+														<div class="row gx-0">
+															<div class="col-sm-12 col-md-4 col-lg-5 col-xl-5">
+																<h6 class="mx-1 my-1 py-1 text_darkcyan text-center">
+																ingresar palabra</h6>
+															</div>
+															<div class="col-sm-12 col-md-8 col-lg-7 col-xl-7">																									
+																<div class="input-group flex-nowrap">																	
+																	<input type="text" name="input_palabra_rae" id="input_palabra_rae" 
+																	class="input_rae form-control mx-1" required spellcheck="true"
+																	placeholder="escriba aquí la palabra" oninput='mostrarPalabrasSugeridas()'>	
+																	
+																</div>																
+															</div>															
+														</div>																
+															
+														<div class="mx-1 my-1">															
+															<div class="d-grid gap-2 d-md-flex justify-content-md-end my-1">																																		
+																<button type="submit" class="btn btn-primary">
+																	obtener definición
+																</button>
+															</div>																												
+														</div>
+														
+													</form>
+												</div>
+											</div>
+											
+											<div class="bg_white mx-1 my-1 px-1 py-1">			
+												<div id="div_respuesta" class="text_green"></div>
+											</div>
+											
+											
+											<div class="bg_grey mx-1 my-1 px-1 py-1">
+			
+												<button onclick="agregarLetra('a')" class="btn btn-light ms-2 mt-2">a</button>
+												<button onclick="agregarLetra('á')" class="btn btn-light ms-2 mt-2">á</button>
+												<button onclick="agregarLetra('b')" class="btn btn-light ms-2 mt-2">b</button>
+												<button onclick="agregarLetra('c')" class="btn btn-light ms-2 mt-2">c</button>
+												<button onclick="agregarLetra('d')" class="btn btn-light ms-2 mt-2">d</button>
+												<button onclick="agregarLetra('e')" class="btn btn-light ms-2 mt-2">e</button>
+												<button onclick="agregarLetra('é')" class="btn btn-light ms-2 mt-2">é</button>
+												<button onclick="agregarLetra('f')" class="btn btn-light ms-2 mt-2">f</button>
+												<button onclick="agregarLetra('g')" class="btn btn-light ms-2 mt-2">g</button>
+												<button onclick="agregarLetra('h')" class="btn btn-light ms-2 mt-2">h</button>				
+												<button onclick="agregarLetra('i')" class="btn btn-light ms-2 mt-2">i</button>
+												<button onclick="agregarLetra('í')" class="btn btn-light ms-2 mt-2">í</button>
+												<button onclick="agregarLetra('j')" class="btn btn-light ms-2 mt-2">j</button>
+												<button onclick="agregarLetra('k')" class="btn btn-light ms-2 mt-2">k</button>
+												<button onclick="agregarLetra('l')" class="btn btn-light ms-2 mt-2">l</button>
+												<button onclick="agregarLetra('m')" class="btn btn-light ms-2 mt-2">m</button>
+												<button onclick="agregarLetra('n')" class="btn btn-light ms-2 mt-2">n</button>
+												<button onclick="agregarLetra('ñ')" class="btn btn-light ms-2 mt-2">ñ</button>
+												<button onclick="agregarLetra('o')" class="btn btn-light ms-2 mt-2">o</button>
+												<button onclick="agregarLetra('ó')" class="btn btn-light ms-2 mt-2">ó</button>
+												<button onclick="agregarLetra('p')" class="btn btn-light ms-2 mt-2">p</button>				
+												<button onclick="agregarLetra('q')" class="btn btn-light ms-2 mt-2">q</button>
+												<button onclick="agregarLetra('r')" class="btn btn-light ms-2 mt-2">r</button>
+												<button onclick="agregarLetra('s')" class="btn btn-light ms-2 mt-2">s</button>
+												<button onclick="agregarLetra('t')" class="btn btn-light ms-2 mt-2">t</button>
+												<button onclick="agregarLetra('u')" class="btn btn-light ms-2 mt-2">u</button>
+												<button onclick="agregarLetra('ú')" class="btn btn-light ms-2 mt-2">ú</button>				
+												<button onclick="agregarLetra('v')" class="btn btn-light ms-2 mt-2">v</button>
+												<button onclick="agregarLetra('w')" class="btn btn-light ms-2 mt-2">w</button>
+												<button onclick="agregarLetra('x')" class="btn btn-light ms-2 mt-2">x</button>				
+												<button onclick="agregarLetra('y')" class="btn btn-light ms-2 mt-2">y</button>
+												<button onclick="agregarLetra('z')" class="btn btn-light ms-2 mt-2">z</button>
+								
+											</div>
+											
+											<div class="bg_azure mx-1 my-1 px-1 py-1">	
+		
+												<div class="row">				
+												
+													<div class="col-sm-12 col-md-4">
+														<div class="mx-1 my-1 d-grid">
+															<button onclick="eliminarUltimaLetra()" class="btn btn-success btn-sm">
+															Eliminar última letra</button>
+														</div>
+													</div>
+			
+													<div class="col-sm-12 col-md-4">
+														<div class="mx-1 my-1 d-grid">
+															<button onclick="establecerValoresIniciales()" class="btn btn-success btn-sm">Borrar todo</button>
+														</div>
+													</div>		
+
+													<div class="col-sm-12 col-md-4">
+														<div class="mx-1 my-1 d-grid">
+															<button onclick="buscarDefinicionRae()" class="btn btn-success btn-sm">Buscar Definición</button>
+														</div>
+													</div>
+			
+												</div>
+		
+											</div>
+																		
+										</article>				
+
+									</div>
+				
+								</div>								
+								
+							</div>				
+
+						</section>
+
+					</div>
+		
+				</div>
+				
+				<div class="col-sm-12 col-md-12 col-lg-3 col-xl-2">
+				
+					<div class="bg_slategrey mx-1 my-1 border">
+						<aside class="estilo_aside">
+							<div class="bg_ivory mx-2 my-2 px-1 py-1">
+								<span class="item_aside_main">---------------</span>
+								<span class="item_aside_main">---------------</span>
+								<span class="item_aside_main">---------------</span>
+								<span class="item_aside_main">---------------</span>
+								<span class="item_aside_main">---------------</span>
+								<span class="item_aside_main">---------------</span>
+								<span class="item_aside_main">---------------</span>
+								<span class="item_aside_main">---------------</span>
+								<span class="item_aside_main">---------------</span>
+								<span class="item_aside_main">---------------</span>
+							</div>																									
+							
+							<div class="bg_grey text_azure mx-1 my-1 px-1 py-1" title="reducir o aumentar el tamaño del texto">
+								<h6 class="mx-2">tamaño texto</h6>
+								<button class="btn btn-sm" onclick="reducirSizeText()">
+									<svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" fill="none" viewBox="0 0 30 31">
+										<path fill="#ddeeff" d="M15 3.313A12.187 12.187 0 1 0 27.188 15.5 12.2 12.2 0 0 0 15 3.312Zm4.688 13.124h-9.375a.938.938 0 0 1 0-1.875h9.374a.938.938 0 0 1 0 1.876Z"/>
+									</svg>
+								</button>
+								<button class="btn btn-sm" onclick="aumentarSizeText()">
+									<svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" fill="none" viewBox="0 0 30 31">
+										<path fill="#ddeeff" d="M15 3.313A12.187 12.187 0 1 0 27.188 15.5 12.203 12.203 0 0 0 15 3.312Zm4.688 13.124h-3.75v3.75a.938.938 0 0 1-1.876 0v-3.75h-3.75a.938.938 0 0 1 0-1.875h3.75v-3.75a.938.938 0 0 1 1.876 0v3.75h3.75a.938.938 0 0 1 0 1.876Z"/>
+									</svg>
+								</button>																
+							</div>
+							
+							<div class="mx-1 my-1 px-1 p-1">
+								<!-- input para guardar el ínidice de las listas de palabras del json palabras rae -->
+								<p class="text_white">------------</p>
+								<input type="number" id="input_indice_letra" size="10" hidden>
+							</div>	
+							
+						</aside>
+					</div>
+					
+				</div>
+			</div>			
+			
+		</div>	
+		
+		
+		
+	</main>
+		
+	
+	<script>
+	
+		function establecerValoresIniciales() {
+			document.getElementById("input_palabra_rae").value = "";									
+			document.getElementById("div_respuesta").innerHTML = "";
+			document.getElementById("input_indice_letra").value = 0;			
+			document.getElementById("div_lista_palabras_sugeridas").innerHTML = "No hay palabras sugeridas";			
+		}
+		
+		
+        document.getElementById('formulario_palabra_rae').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita el envío del formulario por defecto
+
+			let inputPalabraRae = document.getElementById("input_palabra_rae");
+			
+			let palabra_rae = inputPalabraRae.value;
+
+			inputPalabraRae.value = "";
+			
+			let divRespuesta = document.getElementById("div_respuesta");
+			
+            fetch("https://rae-api.com/api/words/" + palabra_rae, {
+                method: 'GET'
+            })
+            .then(response => response.json())
+            .then(data_rae => {						
+			
+				if (data_rae.ok) {
+					
+					let string_respuesta = "";
+								
+					let lista_senses = data_rae.data.meanings[0].senses;
+				
+					let string_sinonimos = "";
+					let string_antonimos = "";
+												
+					lista_senses.forEach(data_sense => {													
+						string_respuesta += "<li><h5>" + data_sense.raw + "</h5></li>";						
+					});
+								
+					divRespuesta.innerHTML = "<div><h5 class='text-center'>Definición/es de: " + palabra_rae + "</h5></div>" 
+						+ "<ul>" + string_respuesta + "</ul>";
+					
+				} else {
+									
+					if (data_rae.error === "NOT_FOUND") {
+						
+						divRespuesta.innerHTML = "<div><h5>La palabra ingresada no existe o tiene errores de ortografía</h5></div>";
+					}
+					
+					if (data_rae.error === "RATE_LIMIT_EXCEEDED") {
+						
+						divRespuesta.innerHTML = "<div><h5>Se exedió el límite de consultas establecido por el servidor</h5></div>";
+					
+					}
+					
+				}
+								
+				
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Hubo un error al enviar el formulario');
+            });
+        });
+				
+		
+		function seleccionarPalabraSugerida(palabraSeleccionada) {
+			document.getElementById("input_palabra_rae").value = palabraSeleccionada;
+			buscarDefinicionRae();
+		}
+		
+		
+		function buscarDefinicionRae() {
+		
+			let palabraSeleccionada = document.getElementById("input_palabra_rae").value; 
+			
+			let divRespuesta = document.getElementById("div_respuesta");
+		
+			 fetch("https://rae-api.com/api/words/" + palabraSeleccionada, {
+                method: 'GET'
+            })
+            .then(response => response.json())
+            .then(data_rae => {
+						
+			
+				if (data_rae.ok) {
+					
+					let string_respuesta = "";				              
+				
+					let lista_senses = data_rae.data.meanings[0].senses;
+												
+				
+					lista_senses.forEach(data_sense => {							
+																			
+						string_respuesta += "<li><h5>" + data_sense.raw + "</h5></li>";
+						
+					});							
+				
+					divRespuesta.innerHTML = "<div><h5 class='text-center'>Definición/es de: " + palabraSeleccionada + "</h5></div>" 
+						+ "<ul>" + string_respuesta + "</ul>";
+					
+				} else {
+										
+					if (data_rae.error === "NOT_FOUND") {
+						
+						divRespuesta.innerHTML = "<div><h4>La palabra ingresada no existe o tiene errores de ortografía</h4></div>";
+					}
+					
+					if (data_rae.error === "RATE_LIMIT_EXCEEDED") {
+						
+						divRespuesta.innerHTML = "<div><h4>Se exedió el límite de consultas establecido por el servidor</h4></div>";
+					
+					}
+					
+				}
+					
+				document.getElementById("input_palabra_rae").value = "";						
+				document.getElementById("input_indice_letra").value = 0;			
+				document.getElementById("div_lista_palabras_sugeridas").innerHTML = "";
+				
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Hubo un error al enviar el formulario');
+            });
+			
+		}
+		
+		window.addEventListener("load", establecerValoresIniciales, false);
+				
+    </script>
+	
+	<footer class="bg_lightslategrey text_lightyellow">
+
+		<div class="mx-1 my-1 px-1 py-1">
+			<h6>Autor : Salvador Mauricio Vilches Jerez</h6>
+			<h6 class="ms-1">Fecha de publicación : Septiembre 2026 </h6>
+			<h6>Contacto : Email: salvadorvilches1972@gmail.com</h6>			
+		</div>
+
+	</footer>	
+	
+	<script src="../archivos_proyecto_main/bootstrap-5.3.8-dist/bootstrap.bundle.js"></script>
+	
+ </body>
+</html>
